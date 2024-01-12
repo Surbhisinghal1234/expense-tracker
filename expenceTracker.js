@@ -19,7 +19,6 @@ let totalAmount = 0;
 let spentAmount = 0;
 let remainingAmount = 0;
 let serialNo = 0;
-const infoArr = [];
 
 setBudgetBtn.addEventListener("click", setBudgetFunc);
 
@@ -47,44 +46,58 @@ function addExpenseBtnFunc(e) {
   } else {
     alert("amount exceed");
   }
+  const infoArr = [];
   infoArr.push({
     sNo: serialNo,
     info: inputExpenseDetails.value,
     amount: Number(inputExpenseAmount.value),
   });
+
   console.log(infoArr);
 
   infoArr.forEach((obj) => {
+    // const addExpenseTr = document.createElement("tr");
+    // const addExpenseTdSNo = document.createElement("td");
+    // const addExpenseTdInfo = document.createElement("td");
+    // const addExpenseTdAmount = document.createElement("td");
 
-    const addExpenseTr = document.createElement("tr");
+    //  addExpenseTdSNo.innerHTML = obj.sNo;
+    // addExpenseTdInfo.innerHTML = obj.info;
+    // addExpenseTdAmount.innerHTML = obj.amount;
+
+    // addExpenseTr.appendChild(addExpenseTdSNo);
+    // addExpenseTr.appendChild(addExpenseTdInfo);
+    // addExpenseTr.appendChild(addExpenseTdAmount);
+
+    // document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr);
+
+    const addExpenseTr=document.createElement("tr")
+
     const addExpenseTdSNo = document.createElement("td");
     const addExpenseTdInfo = document.createElement("td");
     const addExpenseTdAmount = document.createElement("td");
 
-     addExpenseTdSNo.innerHTML = obj.sNo;
+    addExpenseTdSNo.innerHTML = obj.sNo;
     addExpenseTdInfo.innerHTML = obj.info;
-    addExpenseTdAmount.innerHTML = obj.amount;
+    addExpenseTdAmount.innerHTML = obj.amount ;
 
-    addExpenseTr.appendChild(addExpenseTdSNo);
-    addExpenseTr.appendChild(addExpenseTdInfo);
-    addExpenseTr.appendChild(addExpenseTdAmount);
+   
 
-    document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr);
 
-    // const addExpenseTdSNo = document.createElement("td");
-    // const addExpenseTdInfo = document.createElement("td");
-    // const addExpenseTdAmount = document.createElement("td");
-    // document
-    //   .querySelector("expenseTracker")
-    //   .children[0].children[1].append(addExpenseTdSNo);
-    // document
-    // console.log(addExpenseTdSNo);
+    document
+      .querySelector("#expenseTracker")
+    .children[0].children[0].children[1].appendChild(addExpenseTdSNo);
+    
+    console.log(document.querySelector("#expenseTracker").children[0].children[0])
 
-    //   document.querySelector("expenseTracker")
-    //   .children[0].children[1].append(addExpenseTdInfo);
-    // document
-    // .querySelector("expenseTracker")
-    //   .children[0].children[1].append(addExpenseTdAmount);
+    document.querySelector("#expenseTracker").children[0].children[0].children[1].appendChild(addExpenseTdInfo);
+    document.querySelector("#expenseTracker ").children[0].children[0].children[1].appendChild(addExpenseTdAmount);
+    
+    document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr)
+    
+  
     // console.log(obj.info);
+
   });
+  // document.write("</br>")
 }
