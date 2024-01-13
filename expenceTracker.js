@@ -5,11 +5,9 @@ const setBudgetBtn = document.querySelector("#screen1").children[1];
 const inputExpenseDetails =
   document.querySelector("#enterExpense").children[0].children[0];
 
-const inputExpenseAmount =
-  document.querySelector("#enterExpense").children[0].children[2];
+const inputExpenseAmount =document.querySelector("#enterExpense").children[0].children[2];
 
-const addExpenseBtn =
-  document.querySelector("#enterExpense").children[0].children[4];
+const addExpenseBtn =document.querySelector("#enterExpense").children[0].children[4];
 
 const totalAmountSpan = document.querySelector("#totalHeading span");
 const totalHeadingSpan = document.querySelector("#spentHeading span");
@@ -70,8 +68,9 @@ function addExpenseBtnFunc(e) {
     // addExpenseTr.appendChild(addExpenseTdAmount);
 
     // document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr);
+    // ................................................
 
-    const addExpenseTr=document.createElement("tr")
+    const addExpenseTr = document.createElement("tr");
 
     const addExpenseTdSNo = document.createElement("td");
     const addExpenseTdInfo = document.createElement("td");
@@ -79,23 +78,20 @@ function addExpenseBtnFunc(e) {
 
     addExpenseTdSNo.innerHTML = obj.sNo;
     addExpenseTdInfo.innerHTML = obj.info;
-    addExpenseTdAmount.innerHTML = obj.amount ;
+    addExpenseTdAmount.innerHTML = obj.amount;
 
-    document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr)
-    document
-      .querySelector("#expenseTracker")
-    .children[0].children[0].children[1].appendChild(addExpenseTdSNo);
-    
-    console.log(document.querySelector("#expenseTracker").children[0].children[0])
+    document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr);
+    addExpenseTr.appendChild(addExpenseTdSNo);
+    addExpenseTr.appendChild(addExpenseTdInfo);
+    addExpenseTr.appendChild(addExpenseTdAmount);
 
-    document.querySelector("#expenseTracker").children[0].children[0].children[1].appendChild(addExpenseTdInfo);
-    document.querySelector("#expenseTracker ").children[0].children[0].children[1].appendChild(addExpenseTdAmount);
+    console.log(document.querySelector("#expenseTracker").children[0]);
 
-   
-    
-  
-    // console.log(obj.info);
+    //...............................................................................................
 
+    // document.querySelector("#expenseTracker").children[0].children[0].children[1].appendChild(addExpenseTdSNo);
+
+    // document.querySelector("#expenseTracker").children[0].children[0].children[1].appendChild(addExpenseTdInfo);
+    // document.querySelector("#expenseTracker ").children[0].children[0].children[1].appendChild(addExpenseTdAmount);
   });
-  // document.write("</br>")
 }
