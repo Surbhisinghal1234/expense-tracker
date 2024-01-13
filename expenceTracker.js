@@ -81,9 +81,7 @@ function addExpenseBtnFunc(e) {
     addExpenseTdInfo.innerHTML = obj.info;
     addExpenseTdAmount.innerHTML = obj.amount ;
 
-   
-
-
+    document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr)
     document
       .querySelector("#expenseTracker")
     .children[0].children[0].children[1].appendChild(addExpenseTdSNo);
@@ -92,8 +90,8 @@ function addExpenseBtnFunc(e) {
 
     document.querySelector("#expenseTracker").children[0].children[0].children[1].appendChild(addExpenseTdInfo);
     document.querySelector("#expenseTracker ").children[0].children[0].children[1].appendChild(addExpenseTdAmount);
-    
-    document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr)
+
+   
     
   
     // console.log(obj.info);
