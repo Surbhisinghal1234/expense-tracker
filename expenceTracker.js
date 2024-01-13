@@ -5,9 +5,11 @@ const setBudgetBtn = document.querySelector("#screen1").children[1];
 const inputExpenseDetails =
   document.querySelector("#enterExpense").children[0].children[0];
 
-const inputExpenseAmount =document.querySelector("#enterExpense").children[0].children[2];
+const inputExpenseAmount =
+  document.querySelector("#enterExpense").children[0].children[2];
 
-const addExpenseBtn =document.querySelector("#enterExpense").children[0].children[4];
+const addExpenseBtn =
+  document.querySelector("#enterExpense").children[0].children[4];
 
 const totalAmountSpan = document.querySelector("#totalHeading span");
 const totalHeadingSpan = document.querySelector("#spentHeading span");
@@ -33,65 +35,55 @@ function setBudgetFunc() {
 
 function addExpenseBtnFunc(e) {
   e.preventDefault();
+  spentAmount = Number(inputExpenseAmount.value) + spentAmount;
 
-  if (spentAmount < totalAmount) {
+  if (spentAmount <= Number(totalAmount)) {
+  console.log(Number(inputExpenseAmount.value) ,Number(totalAmount),spentAmount)
+
     serialNo = serialNo + 1;
-    spentAmount = Number(inputExpenseAmount.value) + spentAmount;
 
     remainingAmount = totalAmount - spentAmount;
     totalHeadingSpan.innerHTML = spentAmount;
     remainingAmountSpan.innerHTML = remainingAmount;
+    let infoArr = [];
+    infoArr.push({
+      sNo: serialNo,
+      info: inputExpenseDetails.value,
+      amount: Number(inputExpenseAmount.value),
+    });
+  
+    infoArr.forEach((obj) => {
+     
+      // ................................................
+  
+      const addExpenseTr = document.createElement("tr");
+      const addExpenseTdSNo = document.createElement("td");
+      const addExpenseTdInfo = document.createElement("td");
+      const addExpenseTdAmount = document.createElement("td");
+  
+      addExpenseTdSNo.innerHTML = obj.sNo;
+      addExpenseTdInfo.innerHTML = obj.info;
+      addExpenseTdAmount.innerHTML = obj.amount;
+  
+      //...............................................................................................
+      //This is our code which we were working and having problem in children[1] which was replaced by appendChild(addExpenseTr).
+      document
+        .querySelector("#expenseTracker")
+        .children[0].children[0].appendChild(addExpenseTr)
+        .appendChild(addExpenseTdSNo);
+  
+      document
+        .querySelector("#expenseTracker")
+        .children[0].children[0].appendChild(addExpenseTr)
+        .appendChild(addExpenseTdInfo);
+      document
+        .querySelector("#expenseTracker ")
+        .children[0].children[0].appendChild(addExpenseTr)
+        .appendChild(addExpenseTdAmount);
+    });
   } else {
     alert("amount exceed");
   }
-  const infoArr = [];
-  infoArr.push({
-    sNo: serialNo,
-    info: inputExpenseDetails.value,
-    amount: Number(inputExpenseAmount.value),
-  });
+  
 
-  console.log(infoArr);
-
-  infoArr.forEach((obj) => {
-    // const addExpenseTr = document.createElement("tr");
-    // const addExpenseTdSNo = document.createElement("td");
-    // const addExpenseTdInfo = document.createElement("td");
-    // const addExpenseTdAmount = document.createElement("td");
-
-    //  addExpenseTdSNo.innerHTML = obj.sNo;
-    // addExpenseTdInfo.innerHTML = obj.info;
-    // addExpenseTdAmount.innerHTML = obj.amount;
-
-    // addExpenseTr.appendChild(addExpenseTdSNo);
-    // addExpenseTr.appendChild(addExpenseTdInfo);
-    // addExpenseTr.appendChild(addExpenseTdAmount);
-
-    // document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr);
-    // ................................................
-
-    const addExpenseTr = document.createElement("tr");
-
-    const addExpenseTdSNo = document.createElement("td");
-    const addExpenseTdInfo = document.createElement("td");
-    const addExpenseTdAmount = document.createElement("td");
-
-    addExpenseTdSNo.innerHTML = obj.sNo;
-    addExpenseTdInfo.innerHTML = obj.info;
-    addExpenseTdAmount.innerHTML = obj.amount;
-
-    document.querySelector("#expenseTracker table tbody").appendChild(addExpenseTr);
-    addExpenseTr.appendChild(addExpenseTdSNo);
-    addExpenseTr.appendChild(addExpenseTdInfo);
-    addExpenseTr.appendChild(addExpenseTdAmount);
-
-    console.log(document.querySelector("#expenseTracker").children[0]);
-
-    //...............................................................................................
-
-    // document.querySelector("#expenseTracker").children[0].children[0].children[1].appendChild(addExpenseTdSNo);
-
-    // document.querySelector("#expenseTracker").children[0].children[0].children[1].appendChild(addExpenseTdInfo);
-    // document.querySelector("#expenseTracker ").children[0].children[0].children[1].appendChild(addExpenseTdAmount);
-  });
 }
