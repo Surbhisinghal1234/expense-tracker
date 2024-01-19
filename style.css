@@ -3,9 +3,28 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  /* background:  url("tracker.webp"); */
+  background: linear-gradient(#654ea3, #eaafc8);
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  
+}
 #wrapper {
   margin: 2rem auto;
   width: 80%;
+   background: linear-gradient(to right,  #f1111187, #3a6186);  
+   /* #c31432 */
+  padding: 1rem;
+  border-radius: 5px;
+}
+/* .enterExpense >form:first-of-type input{
+  margin-bottom: 10px;
+} */
+
+input:last-of-type{
+  margin: 10px 0;
+
 }
 #screens {
   width: 90%;
@@ -71,4 +90,34 @@ table td {
   border: 1px solid;
   text-align: center;
   padding: 0.5rem;
+}
+
+@media screen and (min-width:280px) and (max-width:600px){
+  #screens{
+    width: unset ;
+  }
+  #enterExpense{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #expenseTracker{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #wrapper {
+    width: unset; 
+     padding: 0 !important;
+}
+#information, #info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#info h3 {
+  padding: 0.3rem;
+}
 }

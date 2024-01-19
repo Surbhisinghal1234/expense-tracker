@@ -38,7 +38,7 @@ function addExpenseBtnFunc(e) {
   spentAmount = Number(inputExpenseAmount.value) + spentAmount;
 
   if (spentAmount <= Number(totalAmount)) {
-  console.log(Number(inputExpenseAmount.value) ,Number(totalAmount),spentAmount)
+    console.log(Number(inputExpenseAmount.value), Number(totalAmount), spentAmount)
 
     serialNo = serialNo + 1;
 
@@ -51,39 +51,33 @@ function addExpenseBtnFunc(e) {
       info: inputExpenseDetails.value,
       amount: Number(inputExpenseAmount.value),
     });
-  
+
     infoArr.forEach((obj) => {
-     
+
       // ................................................
-  
+
       const addExpenseTr = document.createElement("tr");
       const addExpenseTdSNo = document.createElement("td");
       const addExpenseTdInfo = document.createElement("td");
       const addExpenseTdAmount = document.createElement("td");
-  
+
       addExpenseTdSNo.innerHTML = obj.sNo;
       addExpenseTdInfo.innerHTML = obj.info;
       addExpenseTdAmount.innerHTML = obj.amount;
-  
+
       //...............................................................................................
       //This is our code which we were working and having problem in children[1] which was replaced by appendChild(addExpenseTr).
       document
-        .querySelector("#expenseTracker")
-        .children[0].children[0].appendChild(addExpenseTr)
-        .appendChild(addExpenseTdSNo);
-  
-      document
-        .querySelector("#expenseTracker")
-        .children[0].children[0].appendChild(addExpenseTr)
-        .appendChild(addExpenseTdInfo);
-      document
-        .querySelector("#expenseTracker ")
-        .children[0].children[0].appendChild(addExpenseTr)
-        .appendChild(addExpenseTdAmount);
+        .querySelector("#expenseTracker").children[0].children[0]
+        .appendChild(addExpenseTr).appendChild(addExpenseTdSNo);
+
+      document.querySelector("#expenseTracker").children[0].children[0].appendChild(addExpenseTr).appendChild(addExpenseTdInfo);
+      document.querySelector("#expenseTracker ").children[0].children[0].appendChild(addExpenseTr).appendChild(addExpenseTdAmount);
     });
+
   } else {
     alert("amount exceed");
   }
-  
+
 
 }
